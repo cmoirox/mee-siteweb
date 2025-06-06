@@ -1,0 +1,308 @@
+/* ------ Variables de couleur minimalistes ------ */
+:root {
+  --bg: #f5f5f5;
+  --text: #222;
+  --accent: #111;
+}
+
+/* ------ Reset & base ------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Clash Display', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ------ Header ------ */
+header {
+  width: 100%;
+  padding: 2rem 2rem;
+  /* ↓ grille : 3 colonnes auto / 1fr / auto  */
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;          /* aligne verticalement */
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.tagline {
+  text-align: center;
+  font-size: 1.5rem;            /* même taille que le menu */
+  font-weight: 400;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+header nav a {
+  text-decoration: none;
+  color: var(--text);
+  transition: opacity 0.2s;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+header nav a:hover {
+  opacity: 0.6;
+}
+
+
+/* ------ Hero vidéo ------ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 56.25vw; /* 16:9 ratio (9/16 = 0.5625) */
+  max-height: 90vh; /* limite la hauteur sur très grands écrans */
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.hero-video.mobile {
+  display: none;
+}
+
+/* ------ Galerie d'œuvres ------ */
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 0 2rem;
+}
+
+.card {
+  text-align: center;
+  position: relative;           /* nécessaire pour un éventuel box-shadow */
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform;       /* optimise les perfs */
+  margin-bottom: 3rem;
+}
+
+.card img {
+  width: 50%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid var(--accent);
+  transition: transform 0.35s ease; /* zoom doux sur l’image elle-même */
+}
+
+.card h2 {
+  margin-top: 2rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.01);
+}
+
+.card:hover img {
+  transform: scale(1.02);
+}
+
+/* ------ Footer ------ */
+footer {
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/*****************************************************
+ *  MOBILE – ≤ 767 px
+ *****************************************************/
+@media (max-width: 767.98px) {
+
+  /* ---------- Header ---------- */
+  header {
+    /* on repasse en flex pour plus de simplicité */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1.25rem;
+  }
+
+  /* on masque la baseline pour gagner de la place */
+  .tagline {
+    display: none;
+  }
+
+  /* lien dans le menu un peu plus grand / plus d’espace pour le doigt */
+  header nav a {
+    font-size: 1.1rem;
+    padding: .5rem 0;
+  }
+
+  /* --- Burger --- */
+  .burger {
+    display: block;               /* masquée sur desktop, visible ici */
+    width: 24px;
+    height: 18px;
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .burger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--text);
+    transition: transform .3s ease, opacity .3s ease;
+  }
+
+  .burger span:nth-child(1) { top: 0; }
+  .burger span:nth-child(2) { top: 8px; }
+  .burger span:nth-child(3) { top: 16px; }
+
+  /* Animation « X » quand le burger est ouvert --------------------- */
+  .burger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .burger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .burger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* --- Navigation déroulante ------------------------------------- */
+  header nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg);
+    transform: translateY(-100%);
+    transition: transform .3s ease;
+    visibility: hidden;           /* évite le focus tab quand fermé   */
+    pointer-events: none;
+  }
+
+  header nav.open {
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 1.5rem 0;
+  }
+
+  header nav li {
+    padding: .5rem 1.5rem;
+  }
+
+  /* ---------- Hero vidéo ---------- */
+  .hero {
+    height: 100vh;        /* plein écran vertical */
+  }
+
+  /* Affiche la vidéo 9:16, masque la 16:9 */
+  .hero-video.desktop { display: none; }
+  .hero-video.mobile  { display: block; }
+
+  /* ---------- Galerie ---------- */
+  main {
+    margin: 2.5rem auto;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .card img {
+    width: 90%;                   /* images presque pleine largeur     */
+  }
+
+  .card h2 {
+    font-size: 1rem;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 1.5rem .75rem;
+    font-size: .9rem;
+  }
+}
+
+/*****************************************************
+ *  DESKTOP – ≥ 768 px
+ *  (corrige l’alignement du menu dans l’entête)
+ *****************************************************/
+@media (min-width: 768px) {
+
+  /* ---- Header en flex :  h1 | tagline (centrée) | nav ---- */
+  header {
+    display: flex;              /* remplace la grille */
+    align-items: center;
+    padding: 2rem 2rem;         /* conserve ta marge */
+  }
+
+  /* on masque le burger hors mobile */
+  .burger {
+    display: none;
+  }
+
+  /* le nom reste à gauche (pas de règle spéciale) */
+
+  /* tagline occupe l’espace central & se centre */
+  .tagline {
+    flex: 1 1 auto;             /* grandit/rapetisse */
+    text-align: center;
+    padding: 0 1rem;            /* un peu d’air */
+  }
+
+  /* le menu colle à droite */
+  header nav {
+    margin-left: auto;          /* pousse le nav au bout */
+    position: static;           /* annule le positionnement mobile */
+  }
+
+  /* garde l’alignement horizontal des liens */
+  header nav ul {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+

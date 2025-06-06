@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marie Meeûs x Artiste plasticienne</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style/style.css" />
+</head>
+
+
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>Marie Meeûs</h1>
+    <span class="tagline">Artiste plasticienne</span>
+
+    <!-- ➜  BOUTON HAMBURGER (visible seulement sous 768 px avec ton CSS) -->
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- ➜  Ajout d’un id pour le script -->
+    <nav id="main-nav">
+      <ul>
+        <li><a href="#oeuvres">Réalisation</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== HERO VIDÉO ===== -->
+  <section class="hero">
+  <!-- vidéo paysage 16:9 (desktop & tablette) -->
+  <video class="hero-video desktop" src="./asset/mee-16-9.mp4"
+         autoplay muted loop playsinline></video>
+
+  <!-- vidéo portrait 9:16 (mobile) -->
+  <video class="hero-video mobile"  src="./asset/mee-9-16.mp4"
+         autoplay muted loop playsinline></video>
+</section>
+
+  <!-- ===== GALERIE ===== -->
+  <main id="oeuvres">
+    <!-- Répète ce bloc <article> pour chaque œuvre -->
+    <article class="card">
+      <img src="./asset/20250321_101322.jpg" alt="Titre de l’œuvre 1">
+      <h2>Titre de l’œuvre</h2>
+    </article>
+
+    <article class="card">
+      <img src="./asset/20250111_200041.jpg" alt="Titre de l’œuvre 2">
+      <h2>Titre de l’œuvre</h2>
+    </article>
+
+    <article class="card">
+      <img src="./asset/20250125_005700.jpg" alt="Titre de l’œuvre 3">
+      <h2>Titre de l’œuvre</h2>
+    </article>
+
+    <article class="card">
+      <img src="./asset/20250125_010012.jpg" alt="Titre de l’œuvre 3">
+      <h2>Titre de l’œuvre</h2>
+    </article>
+
+    <article class="card">
+      <img src="./asset/20250220_134402.jpg" alt="Titre de l’œuvre 3">
+      <h2>Titre de l’œuvre</h2>
+    </article>
+
+    <article class="card">
+      <img src="./asset/20250310_184207.jpg" alt="Titre de l’œuvre 3">
+      <h2>Titre de l’œuvre</h2>
+    </article>
+
+    <article class="card">
+      <img src="./asset/20250322_164237.jpg" alt="Titre de l’œuvre 3">
+      <h2>Titre de l’œuvre</h2>
+    </article>
+
+    <article class="card">
+      <img src="./asset/20250322_170324.jpg" alt="Titre de l’œuvre 3">
+      <h2>Titre de l’œuvre</h2>
+    </article>
+
+    <article class="card">
+      <img src="./asset/20250322_172850.jpg" alt="Titre de l’œuvre 3">
+      <h2>Titre de l’œuvre</h2>
+    </article>
+
+    <article class="card">
+      <img src="./asset/20250322_173525.jpg" alt="Titre de l’œuvre 3">
+      <h2>Titre de l’œuvre</h2>
+    </article>
+
+    <article class="card">
+      <img src="./asset/20250326_112918.jpg" alt="Titre de l’œuvre 3">
+      <h2>Titre de l’œuvre</h2>
+    </article>
+
+    <article class="card">
+      <img src="./asset/20250326_121605.jpg" alt="Titre de l’œuvre 3">
+      <h2>Titre de l’œuvre</h2>
+    </article>
+
+    <article class="card">
+      <img src="./asset/20250326_122020.jpg" alt="Titre de l’œuvre 3">
+      <h2>Titre de l’œuvre</h2>
+    </article>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="contact">
+    <p>
+        Email : <a href="mailto:contact@artiste.com">contact@artiste.com</a><br />
+        <br />
+        Tél : +33 6 12 34 56 78<br />
+        <br />
+        <small>© 2025 Marie Meeûs — Tous droits réservés</small>
+    </p>
+  </footer>
+
+  <script>
+    const burger = document.querySelector('.burger');
+    const nav    = document.getElementById('main-nav');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      nav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', burger.classList.contains('open'));
+    });
+  </script>
+
+</body>
+</html>
