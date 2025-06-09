@@ -3,17 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marie Rouault (MEE) - Artiste plasticienne</title>
+  <title>Marie Rouault (MEE) - Artiste plasticienne & peintre</title>
+  <meta name="description" content="Site Web de Marie Rouault (MEE), artiste plasticienne et peintre contemporaine basée à Quimper, en Bretagne. Découvrez ses peintures, installations et projets artistiques.">
+  <meta name="keywords" content="Marie Rouault, MEE, artiste plasticienne, artiste peintre, Quimper, Bretagne, Finistère, art contemporain, peinture contemporaine, installation artistique, exposition, galerie d’art, arts visuels, œuvre d’art, artiste bretonne">
+  <meta name="author" content="Marie Rouault">
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style/style.css" />
   <link rel="icon" type="image/png" href="./asset/favicon-mee.png"/>
+  <link rel="preload" href="./style/style.css" as="style">
+
+  <!-- Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cmoirox.github.io/mee-siteweb/">
+  <meta property="og:title" content="Marie Rouault (MEE) – Artiste plasticienne & peintre à Quimper, Bretagne">
+  <meta property="og:description" content="Découvrez les œuvres contemporaines de Marie Rouault (MEE), artiste plasticienne et peintre basée à Quimper, Bretagne.">
+  <meta property="og:image" content="https://cmoirox.github.io/mee-siteweb/asset/og-image.jpg">
+    
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://cmoirox.github.io/mee-siteweb/">
+  <meta property="twitter:title" content="Marie Rouault (MEE) – Artiste plasticienne & peintre à Quimper, Bretagne">
+  <meta property="twitter:description" content="Découvrez les œuvres contemporaines de Marie Rouault (MEE), artiste plasticienne et peintre basée à Quimper, Bretagne.">
+  <meta property="twitter:image" content="https://cmoirox.github.io/mee-siteweb/asset/og-image.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Marie Rouault",
+    "alternateName": "MEE",
+    "jobTitle": "Artiste plasticienne et peintre contemporaine",
+    "homeLocation": {
+      "@type": "Place",
+      "name": "Quimper, Bretagne, France"
+    },
+    "url": "https://cmoirox.github.io/mee-siteweb/",
+    "image": "https://cmoirox.github.io/mee-siteweb/asset/og-image.jpg",
+    "sameAs": [
+      "https://www.instagram.com/marie.mee29"
+    ]
+  }
+  </script>  
 </head>
 
+ <!-- Micro données -->
+<body itemscope itemtype="http://schema.org/Person"></body> 
+  <meta itemprop="name" content="Marie Rouault">
+  <meta itemprop="alternateName" content="MEE">
+  <meta itemprop="jobTitle" content="Artiste plasticienne et peintre contemporaine">
+  <meta itemprop="homeLocation" content="Quimper, Bretagne, France">
+  <meta itemprop="url" content="https://cmoirox.github.io/mee-siteweb/">
+  <meta itemprop="image" content="https://cmoirox.github.io/mee-siteweb/asset/og-image.jpg">
+  <!-- Réseaux sociaux : ajoutez ceux qui comptent le plus pour vous -->
+  <meta itemprop="sameAs" content="https://www.instagram.com/marie.mee29">
 
-<body>
-  <!-- ===== HEADER ===== -->
-  <header>
-    <h1>Marie Rouault (Artiste MEE)</h1>
+  <header class="main-header" role="banner"
+          itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+
+    <h1 itemprop="name">Marie Rouault <span class="visually-hidden">(MEE)</span></h1>
     <span class="tagline"></span>
 
     <!-- ➜  BOUTON HAMBURGER (visible seulement sous 768 px avec ton CSS) -->
@@ -182,7 +229,7 @@
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <footer id="contact">
+  <footer id="contact" role="contentinfo">
     <p>
         Email : <a href="mailto:contact@artiste.com">contact@artiste.com</a><br />
         <br />
